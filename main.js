@@ -28,7 +28,18 @@ const pAequorFactory = (num, bases) => {
       let mutatedBases = altBases[Math.floor(Math.random() * 3)]; // randomly selecting from remainging bases
 
       return this.dna.splice(i, 1, mutatedBases);
-    }
+    },
+    compareDNA(otherpAequor) {
+      let count = 0;
+      for (let i = 0; i < this.dna.length; i++) {
+        if (this.dna[i] === otherpAequor.dna[i]) {
+          count +=1;
+        } // iterate through both arrays and add count for every element that's the same
+        count = Math.floor((count / this.dna.length) * 100); //calculates percentage of identical bases
+        console.log(`specimen #1 ${this.specimenNum} and specimen #2 ${otherpAequor.specimenNum} have ${count}% DNA in common`);
+      }
+    },
+
   }
 }
 
