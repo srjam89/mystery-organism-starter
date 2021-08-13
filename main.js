@@ -35,23 +35,32 @@ const pAequorFactory = (num, bases) => {
         if (this.dna[i] === otherpAequor.dna[i]) {
           count +=1;
         } // iterate through both arrays and add count for every element that's the same
+      }
         count = Math.floor((count / this.dna.length) * 100); //calculates percentage of identical bases
         console.log(`specimen #1 ${this.specimenNum} and specimen #2 ${otherpAequor.specimenNum} have ${count}% DNA in common`);
-      }
-    },
+      },
+      willLikelySurvive() {
+      const cAndG = this.dna.filter(letter => letter === 'C' || letter === 'G');
 
+      if (cAndG.length/this.dna.length > 0.6) {
+        return true;
+      } else {
+        return false;
+      }
+    }
   }
 }
 
-
-
+let smaple = [];
+let instance = 0;
+while (smaple.length <= 30) {
+  let temp = pAequorFactory(i, mockUpStrand());
+  if (temp.willLikelySurvive() === true) {
+    smaple.push(temp);
+    instance +=1;
+  }
 };
 
 
 
-
-
-
-
-
-
+      
