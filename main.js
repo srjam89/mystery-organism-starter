@@ -54,7 +54,7 @@ const pAequorFactory = (num, bases) => {
 let smaple = [];
 let instance = 0;
 while (smaple.length <= 30) {
-  let temp = pAequorFactory(i, mockUpStrand());
+  let temp = pAequorFactory(instance, mockUpStrand());
   if (temp.willLikelySurvive() === true) {
     smaple.push(temp);
     instance +=1;
